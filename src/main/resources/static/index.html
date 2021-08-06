@@ -1,10 +1,56 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <title>Specialist Computer Monitors Ltd</title>
-<link rel="stylesheet" href=./style.css">
+<link rel="stylesheet" type="text/css" href="./style.css" media="all"/>
+<style>
+body {
+	background-image: url('./background.jpg');
+	background-repeat: repeat-y;
+}
+</style>
 </head>
+
 <body>
 <h1>Welcome to Specialist Computer Monitors Ltd</h1>
 <h2>We have the best range of monitors and they are all of the highest quality in the market.</h2>
+<br/>
+<br/>
+<br/>
+    <button class="btn btn-primary" id="all" onclick="showAll();"> Show Us Everything in Stock!</button>
+    <button class="btn btn-primary" id="add" onclick="addMonitor();"> Add a New Monitor</button>
+    <button class="btn btn-primary" id="find" onclick="findMonitor();"> Find Monitors by Name</button>
+    <button class="btn btn-primary" id="find" onclick="updateMonitor();"> Update a Monitor</button>
+    <button class="btn btn-primary" id="find" onclick="deleteMonitor();"> Discontinue Selling a Monitor</button>
+     
+<h3>Choose an option, you are an Admin user.</h3>
+<br/>
+    <input type="text" class="form-control" id="result" placeholder="" disabled/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+	<script src="./monitor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
+<footer>
+Specialist Computer Monitors Ltd (c)2021 Tel: 0800 100 100 100 email:sales@SpecialistMonitors.co.uk
+</footer>
 </html>

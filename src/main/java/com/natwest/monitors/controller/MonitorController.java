@@ -29,9 +29,9 @@ public class MonitorController {
         return new ResponseEntity<Monitor>(this.service.createMonitor(mon),HttpStatus.CREATED);
     }
     
-    @GetMapping("/monitor/getAll")
-    public ResponseEntity<List<Monitor>> getAll() {
-    	return new ResponseEntity<List<Monitor>>(this.service.readAll(), HttpStatus.OK);
+    @GetMapping("/monitor/findAll")
+    public ResponseEntity<List<Monitor>> findAll() {
+    	return new ResponseEntity<List<Monitor>>(this.service.findAll(), HttpStatus.OK);
     }
     
     @PutMapping("/monitor/update/{id}")

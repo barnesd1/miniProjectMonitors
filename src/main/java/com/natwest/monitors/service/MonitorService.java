@@ -14,7 +14,7 @@ public class MonitorService {
 	public Monitor createMonitor(Monitor mon) {
 		return this.repo.saveAndFlush(mon);
 	}
-	public List<Monitor> readAll() {
+	public List<Monitor> findAll() {
 		return this.repo.findAll();
 	}
 	public Monitor findById(Long id) {
