@@ -9,12 +9,18 @@ const tableBottom = `</table>
 				</div>`;
 // const baseUrl = 'https://SpecialistComputerMonitors.com';'      //if application was live ;)
 const baseUrl = 'http://localhost:9002';
+
 //Return all monitors from the api
 function showAll() {
 	showAllUrl(baseUrl + '/monitor/findAll');
 }
+//----------------------------------------------
+//find monitor by name
+function findMonitor(monitorName) {
+	showAllUrl(baseUrl + '/monitor/findByName/' + monitorName);
+}	
 
-// works for all and search by passing api url
+// works for showAll and search by name passing api url
 function showAllUrl(url) {
 	fetch(url).then(response => {
 		if(!response.ok) {
@@ -41,16 +47,22 @@ function showAllUrl(url) {
 }
 
 //----------------------------------------------
-//find monitor by name
-function findMonitor(monitorName) {
-	showAllUrl(baseUrl + '/monitor/findByName/' + monitorName);
-}	
+//create a new monitor
+function createMonitor(monitorName, monitorPrice) {
+	changeMonitorUrl("POST", baseUrl + '/monitor/create',monitorName, monitorPrice);
+}
 
 //----------------------------------------------
-//add a new monitor then display it
-function addMonitor(monitorName, monitorPrice) {
-	fetch(baseUrl + '/monitor/create', {
-		method: "POST",
+//update monitor
+function updateMonitor(monitorId, monitorName, monitorPrice) {
+	changeMonitorUrl("PUT", baseUrl + '/monitor/update/' + monitorId,monitorName, monitorPrice);
+}
+
+//----------------------------------------------
+//function does insert and update monitor operation by passing POST/PUT and url
+function changeMonitorUrl(method, url, monitorName, monitorPrice) {
+	fetch(url, {
+		method: method,
 		headers: { "Content-Type": "application/json"},
 		body: JSON.stringify({
 			name: monitorName,
@@ -78,7 +90,7 @@ function addMonitor(monitorName, monitorPrice) {
 	});	
 }
 //----------------------------------------------
-//add a new monitor then display it
+//delete a monitor
 function deleteMonitor(monitorId) {
 	fetch(baseUrl + '/monitor/delete/' + monitorId, {
 		method: 'DELETE'
@@ -92,3 +104,4 @@ function deleteMonitor(monitorId) {
 		alert(`Error for Monitor ID: ${monitorId}, no delete occurred`);
 	});	
 }
+

@@ -26,22 +26,27 @@ body {
 <br/>
 <br/>
     <button class="btn btn-primary" id="all" onclick="showAll();"> Show Us Everything in Stock!</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="name">Search:</label>
+    <input type="text" id="inputName" name="inputName" size="30">
+    <button class="btn btn-primary" id="find" onclick="findMonitor(document.getElementById('inputName').value);"> Find Monitors by Name</button>
     <br/><br/>
     <label for="name">Monitor Name:</label>
     <input type="text" id="newName" name="newName" size="30">
     <label for="name">Monitor Price: £</label>
     <input type="text" id="newPrice" name="newPrice" size="6">
-    <button class="btn btn-primary" id="add" onclick="addMonitor(document.getElementById('newName').value,document.getElementById('newPrice').value);"> Add a New Monitor</button>
-    <br/><br/>
-    <label for="name">Search:</label>
-    <input type="text" id="inputName" name="inputName" size="30">
-    <button class="btn btn-primary" id="find" onclick="findMonitor(document.getElementById('inputName').value);"> Find Monitors by Name</button>
-    <br/><br/>
-    <button class="btn btn-primary" id="find" onclick="updateMonitor();"> Update a Monitor</button>
+    <button class="btn btn-primary" id="create" onclick="createMonitor(document.getElementById('newName').value,
+    		document.getElementById('newPrice').value);"> Add a New Monitor</button>
+    <br/><br/>  
+    <label for="name">ID to Update:</label>
+    <input type="text" id="updateID" name="updateID" size="6">
+    <button class="btn btn-primary" id="update" onclick="updateMonitor(document.getElementById('updateID').value,
+    		    document.getElementById('newName').value,
+        		document.getElementById('newPrice').value
+    		);"> Update a Monitor</button>
     <br/><br/>
     <label for="name">ID to Delete:</label>
     <input type="text" id="deleteID" name="deleteID" size="6">
-    <button class="btn btn-primary" id="find" onclick="deleteMonitor(document.getElementById('deleteID').value);"> Discontinue Selling a Monitor</button>
+    <button class="btn btn-primary" id="delete" onclick="deleteMonitor(document.getElementById('deleteID').value);"> Discontinue Selling a Monitor</button>
      
 <h3>Choose an option, you are an Admin user.</h3>
 <br/>
@@ -55,6 +60,6 @@ body {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 <footer>
-Specialist Computer Monitors Ltd (c)2021 Tel: 0800 100 100 100 email:sales@SpecialistComputerMonitors.co.uk
+Specialist Computer Monitors Ltd (c)2021 Tel: 0800 100 100 100 Email: sales@SpecialistComputerMonitors.co.uk
 </footer>
 </html>
