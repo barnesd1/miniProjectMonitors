@@ -77,3 +77,18 @@ function addMonitor(monitorName, monitorPrice) {
 		console.log(error);
 	});	
 }
+//----------------------------------------------
+//add a new monitor then display it
+function deleteMonitor(monitorId) {
+	fetch(baseUrl + '/monitor/delete/' + monitorId, {
+		method: 'DELETE'
+	}).then(response => {
+		if(!response.ok) {
+			throw Error("ERROR");
+		}
+		alert(`Monitor ID: ${monitorId} was successfully deleted`);
+		document.querySelector('#list').innerHTML = '';
+	}).catch(error => {
+		alert(`Error for Monitor ID: ${monitorId}, no delete occurred`);
+	});	
+}

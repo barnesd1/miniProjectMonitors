@@ -1,5 +1,7 @@
 package com.natwest.monitors.service;
 import java.util.List;
+import java.util.Objects;
+
 import org.springframework.stereotype.Service;
 import com.natwest.monitors.persistence.domain.Monitor;
 import com.natwest.monitors.persistence.repo.MonitorRepo;
@@ -29,8 +31,13 @@ public class MonitorService {
 	}
 	
 	public Boolean deleteMonitor(Long id) {
-		this.repo.deleteById(id);
-	    return this.repo.existsById(id);
+		Monitor exists = this.repo.getById(id);
+		if(Objects.nonNull(exists))
+		{
+			this.repo.deleteById(id);
+			return this.repo.existsById(id);
+		}
+		else return false;
 	}
 	
 	
