@@ -7,9 +7,11 @@ const tableTop = `<div class="monitor">
 				<tr>`;
 const tableBottom = `</table>
 				</div>`;
+// const baseUrl = 'https://SpecialistComputerMonitors.com';'      //if application was live ;)
+const baseUrl = 'http://localhost:9002';
 //Return all monitors from the api
 function showAll() {
-	showAllUrl('http://localhost:9002/monitor/findAll');
+	showAllUrl(baseUrl + '/monitor/findAll');
 }
 
 // works for all and search by passing api url
@@ -41,5 +43,37 @@ function showAllUrl(url) {
 //----------------------------------------------
 //find monitor by name
 function findMonitor(monitorName) {
-	showAllUrl('http://localhost:9002/monitor/findByName/' + monitorName);
+	showAllUrl(baseUrl + '/monitor/findByName/' + monitorName);
 }	
+
+//----------------------------------------------
+//add a new monitor then display it
+function addMonitor(monitorName, monitorPrice) {
+	fetch(baseUrl + '/monitor/create', {
+		method: "POST",
+		headers: { "Content-Type": "application/json"},
+		body: JSON.stringify({
+			name: monitorName,
+			price: monitorPrice
+		})
+	}).then(response => {
+		if(!response.ok) {
+			throw Error("ERROR");
+		}
+		return response.json();
+	}).then(newMonitor => {
+		console.log(newMonitor);
+		const html = 
+			 `
+			<tr>
+				<td>${newMonitor.id}</td>
+				<td>${newMonitor.name}</td>
+				<td>£${newMonitor.price}</td>
+			</tr>
+			`;
+		document.querySelector('#list').innerHTML = '';
+		document.querySelector('#list').insertAdjacentHTML('afterbegin', tableTop + html + tableBottom);
+	}).catch(error => {
+		console.log(error);
+	});	
+}

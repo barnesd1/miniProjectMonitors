@@ -6,12 +6,14 @@
 #    • Java with Spring API
 #    • MySql Workbench and local db instance
 #    • Javascript
+#    • HTML
 #    • Postman
 #    • Git Bash
 #    • Apache Tomcat
 #
 # Usage:
 #    • Run MonitorsApplication.java as a Spring Boot App
+#    • initialInsert.sql can be run on MySql to insert 5 sample records
 #    • Website can be run with http://localhost:9002/
 #	
 # Project Details:

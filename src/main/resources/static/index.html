@@ -25,14 +25,18 @@ body {
 <h2>We have the best range of monitors and they are all of the highest quality in the market.</h2>
 <br/>
 <br/>
-<br/>
     <button class="btn btn-primary" id="all" onclick="showAll();"> Show Us Everything in Stock!</button>
-    <button class="btn btn-primary" id="add" onclick="addMonitor();"> Add a New Monitor</button>
-    <br/>
-    <button class="btn btn-primary" id="find" onclick="findMonitor(document.getElementById('inputName').value);"> Find Monitors by Name</button>
+    <br/><br/>
+    <label for="name">Monitor Name:</label>
+    <input type="text" id="newName" name="newName" size="20">
+    <label for="name">Monitor Price:</label>
+    <input type="text" id="newPrice" name="newPrice" size="6">
+    <button class="btn btn-primary" id="add" onclick="addMonitor(document.getElementById('newName').value,document.getElementById('newPrice').value);"> Add a New Monitor</button>
+    <br/><br/>
     <label for="name">Search:</label>
     <input type="text" id="inputName" name="inputName" size="15">
-    <br/>
+    <button class="btn btn-primary" id="find" onclick="findMonitor(document.getElementById('inputName').value);"> Find Monitors by Name</button>
+    <br/><br/>
     <button class="btn btn-primary" id="find" onclick="updateMonitor();"> Update a Monitor</button>
     <button class="btn btn-primary" id="find" onclick="deleteMonitor();"> Discontinue Selling a Monitor</button>
      
