@@ -1,3 +1,12 @@
+const tableTop = `<div class="monitor">
+				<table style="width:80%">
+			    <tr>
+				<th>ID</th>
+				<th>Monitor Name</th>
+				<th>Price</th>
+				<tr>`;
+const tableBottom = `</table>
+				</div>`;
 //Return all monitors from the api
 function showAll() {
 	showAllUrl('http://localhost:9002/monitor/findAll');
@@ -14,14 +23,16 @@ function showAllUrl(url) {
 		console.log(data);
 		const html = data.map(monitor => {
 			return `
-			<div class="monitor">
-			<p>ID: ${monitor.id} Monitor Name: ${monitor.name} Price: £${monitor.price}</p>
-			</div>
+			<tr>
+				<td>${monitor.id}</td>
+				<td>${monitor.name}</td>
+				<td>£${monitor.price}</td>
+			</tr>
 			`;
 		})
 		.join("");
 		document.querySelector('#list').innerHTML = '';
-		document.querySelector('#list').insertAdjacentHTML('afterbegin', html);
+		document.querySelector('#list').insertAdjacentHTML('afterbegin', tableTop + html + tableBottom);
 	}).catch(error => {
 		console.log(error);
 	});
