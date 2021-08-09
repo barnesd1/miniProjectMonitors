@@ -9,6 +9,6 @@ import com.natwest.monitors.persistence.domain.Monitor;
 
 @Repository
 public interface MonitorRepo extends JpaRepository<Monitor, Long>{
-	@Query(value="select * from monitor where name =?1", nativeQuery = true)
+	@Query(value="select * from monitor where name like %?1%", nativeQuery = true)
 	List<Monitor> findByName(String name);
 }

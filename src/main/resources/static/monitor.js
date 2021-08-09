@@ -1,6 +1,11 @@
 //Return all monitors from the api
 function showAll() {
-	fetch('http://localhost:9002/monitor/findAll').then(response => {
+	showAllUrl('http://localhost:9002/monitor/findAll');
+}
+
+// works for all and search by passing api url
+function showAllUrl(url) {
+	fetch(url).then(response => {
 		if(!response.ok) {
 			throw Error("ERROR");
 		}
@@ -15,6 +20,7 @@ function showAll() {
 			`;
 		})
 		.join("");
+		document.querySelector('#list').innerHTML = '';
 		document.querySelector('#list').insertAdjacentHTML('afterbegin', html);
 	}).catch(error => {
 		console.log(error);
@@ -23,4 +29,6 @@ function showAll() {
 
 //----------------------------------------------
 //find monitor by name
-findMonitor()
+function findMonitor(monitorName) {
+	showAllUrl('http://localhost:9002/monitor/findByName/' + monitorName);
+}	
