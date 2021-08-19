@@ -26,6 +26,7 @@ public class MonitorService {
 		Monitor exists = this.repo.getById(id);
 		//System.out.println(exists);
 		exists.setName(mon.getName());
+		exists.setPrice(mon.getPrice());
 		Monitor updated = this.repo.save(exists);
 	    return updated;
 	}
