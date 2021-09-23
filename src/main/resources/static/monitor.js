@@ -8,7 +8,8 @@ const tableTop = `<div class="monitor">
 const tableBottom = `</table>
 				</div>`;
 // const baseUrl = 'https://SpecialistComputerMonitors.com';'      //if application was live ;)
-const baseUrl = 'http://localhost:9002';
+//const baseUrl = 'http://localhost:9002';
+const baseUrl = 'http://djb-server1.uksouth.cloudapp.azure.com:9002';
 
 //Return all monitors from the api
 function showAll() {

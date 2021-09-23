@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  monitors-app: 
+    container_name: monitors-app
+    build: .
+    image: monitors-app:latest
+    environment:
+      MYSQL_SERVER: "djb-sqlserver1.mysql.database.azure.com"
+      MYSQL_USER: "DavidBarnes@djb-sqlserver1"
+      MYSQL_PASSWORD: "Abc12345"
+    ports:
+      - target: 9002
+        published: 9002
